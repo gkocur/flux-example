@@ -12,7 +12,7 @@ spec:
         app: nginx
     spec:
       volumes:
-        - name: index.html
+        - name: index
           configMap:
             name: index
       containers:
