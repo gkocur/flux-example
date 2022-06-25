@@ -11,12 +11,20 @@ spec:
       labels:
         app: nginx
     spec:
+      volumes:
+        - name: index.html
+          configMap:
+            name: index
       containers:
       - name: nginx
         image: nginx
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html/index.html
+            name: index
+            subPath: index.html
         resources:
           limits:
             memory: "128Mi"
-            cpu: "500m"
+            cpu: "200m"
         ports:
         - containerPort: 80
